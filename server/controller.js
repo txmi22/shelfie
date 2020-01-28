@@ -2,9 +2,9 @@ module.exports = {
 	getProduct: (req, res) => {
 		const database = req.app.get("db");
 		const {id} = req.params
-		database.get_product(+id).then(response => {
+		database.get_product(id).then(response => {
 			const data = response[0];
-			console.log(data)
+			// console.log(data)
 			res.status(200).send(data);
 		});
 	},
@@ -23,6 +23,7 @@ module.exports = {
 	},
 
 	updateProduct: (req, res) => {
+		console.log(req.body)
 		const database = req.app.get("db");
 		const {id} = req.params;
 		const {name, price, image} = req.body;

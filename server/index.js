@@ -1,11 +1,10 @@
 require('dotenv').config();
-const express = require('express');
-const massive = require('massive');
-const cors = require('cors');
-const {SERVER_PORT, CONNECTION_STRING} = process.env;
-const ctrl = require('./controller');
-
-const app = express();
+const express = require('express'),
+      massive = require('massive'),
+      cors = require('cors'),
+      {SERVER_PORT, CONNECTION_STRING} = process.env,
+      ctrl = require('./controller'),
+      app = express();
 
 app.use(express.json());
 app.use(cors());
@@ -18,8 +17,8 @@ massive(CONNECTION_STRING).then(database => {
 });
 
 //endpoints
-app.get("/api/products/:id", ctrl.getProduct);
 app.get("/api/products", ctrl.getAllProducts);
+app.get("/api/products/:id", ctrl.getProduct);
 app.post("/api/products", ctrl.addProduct);
 app.put("/api/products/:id", ctrl.updateProduct);
 app.delete("/api/products/:id", ctrl.deleteProduct);

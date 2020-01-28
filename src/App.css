@@ -45,3 +45,15 @@
   font-size: 15px;
   font-weight: bold;
 }
+
+.inventory-box {
+  height: 60vh;
+  width: 30vw;
+  background-color: mediumseagreen;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
